@@ -1,43 +1,14 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Routing with Pages
+* You don't need to interact with a router directly to create pages.
+* Next.js has built on conventions to make creating routes as easy as creating a file 🤙🏾.
 
-## Getting Started
+* create a directory called `/pages`
+* Next.js will associate any file in this directory as a route 
+* file names determine the route name or pattern, and whatever component is exported is the actual page
 
-First, run the development server:
+* create an index route by creating a file: `/pages/index.jsx`.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-___
-
-
-You don't need to interact with a router directly to create pages. Next.js has built on conventions to make creating routes as easy as creating a file 🤙🏾.
-
-To get started, create a directory on your called `/pages`. Next.js will associate any file in this directory as a route. The file names determine the route name or pattern, and whatever component is exported is the actual page.
-
-Now let's create an index route by creating a file: `/pages/index.jsx`.
-
-Next, let's create a component and export it:
+*Create a component and export it*
 
 ```jsx
 import React from 'react'
@@ -57,10 +28,10 @@ npm run dev
 yarn dev
 ```
 
-We should now be able to navigate the browser to the index route of our app and see our h1's content. I really appreciate conventions like this that make developing apps that much more fun!
+*navigate the browser to the index route of app and see the h1's content*
 
 
-Ok, big deal, we created an index page, but what about paths like `myapp.com/project/settings` and `myapp.com/user/1` where `1` is a parameter? Don't even trip; Next.js has you covered there.
+___
 
 
 ## Folders and routes
@@ -91,11 +62,9 @@ import React from 'react'
 export default () => <h1>Notes</h1>
 ```
 
-> 🧠 &nbsp;&nbsp;**reminder**: We'll fill these pages out later with some excellent copy and pasting.
-
-
 ## Dynamic routes
-Next.js makes it easy to create dynamic routes. Depending on if and how you want those pages to be prerendered will determine how you set them up. We're going to focus on creating dynamic routes that will not be built at build time but instead at run time on the server.
+* Next.js makes it easy to create dynamic routes
+* the folowing kind of dynamic routes will not be built at build time but instead at run time on the server.
 
 > 🧠&nbsp;&nbsp; **reminder**: We'll cover prerendering later, so don't overthink right now.
 
@@ -105,16 +74,18 @@ So to create a dynamic route, we can create a file that looks like this:
 [id].jsx
 ```
 
-Where `id` is the name of the parameter. You can name it whatever you want. Those brackets are not a typo or a placeholder; that's the syntax to create a dynamic route using file name conventions in the pages directory. So let's create our note route:
+* `id` is the name of the parameter, which can name it whatever you want
+Those brackets is the syntax to create a dynamic route using file name conventions in the pages directory
 
+*Note Route*
 ```
 pages
-  notes
-    index.jsx
-    [id].jsx
+  notes// folder: this tells the pages directory is a sub path
+    index.jsx// creates the rout for the index of sub path
+    [id].jsx // this tells that the route will have a id parameter /notes/id
 ```
 
-We can access the `id` param inside our page component using the  `useRouter` hook from the `next/route` module. This comes for free with Next.js.
+* the `id` param inside our page component can be accessed using the  `useRouter` hook from the `next/route` module. This comes for free with Next.js.
 
 ```jsx
 import React from 'react'
@@ -130,7 +101,7 @@ export default () => {
 }
 ```
 
-There param name on the query object is the same name as the param name in the file for that page. 
+*There param name on the query object is the same name as the param name in the file for that page.* 
 
 ```text
 router.query.id
@@ -193,3 +164,6 @@ So when would you use catch-all routes? I find them useful for when you have a b
 So pages are special, but what about when you just need a component? Next.js doesn't have any conventions or opinions about that. The community usually creates a `/src/components` folder where all the components live.
 
 > 🌲 &nbsp;&nbsp;**branch**: git checkout routing-with-pages
+
+#specific to next js
+- [ ] nested Routes
