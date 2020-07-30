@@ -1,63 +1,41 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-___
-
 Next.js comes with some styling conventions baked in, and they're pretty good. Because Next.js uses React, you can also use any other mechanism that works with React to style your apps.
 
 > 👍🏾&nbsp;&nbsp;**tip** You might have to extend Next.js tp support your styling approach. More on that later.
 
-When it comes to styling, you have global styles and component styles. For global CSS, you have to import them at the entry point of your app. Wait, where is the entrance to my Next.js app? It's actually created for you, but you can and have to create your own now that you want global styles.
+* there are global styles and component styles
+* global CSS, you have to import them at the entry point of your app
+* but you can and have to create your own now that you want global styles
+* _app.js, allow us to highjack the root or entry point
 
 Create an `pages/_app.jsx` file and add this:
 
 ```jsx
+import React from 'react';
 export default function App({ Component, pageProps }) {
   return <Component {...pageProps} />
 }
 ```
 
-This automatically gets created for you by default with the same code. In the `_app.jsx` you can import any CSS file, and the styles will be global now.
+* this component gets created automatically for you by default(_app.js)  
+* CSS files can only be imported in the `_app.jsx`, and the styles will be global
 
 ```jsx
 import 'flexbox.css'
 import '../mystyles.css'
 ```
 
-Now, when you don't want global CSS, Next.js supports [css modules](https://github.com/css-modules/css-modules). This will scope your CSS, avoiding collisions.
+
+####CSS Modules
+
+* Next.js supports [css modules](https://github.com/css-modules/css-modules)
+* This will scope your CSS, avoiding collisions
 
 > 🕳 &nbsp;&nbsp;**deep dive**: a unique class name is created every import to reuse the same CSS class names
 
-You can import a CSS module file anywhere in your app. To create a CSS module, you have to use a special syntax in the file name.
+* import a CSS module file anywhere in your app. 
+* create a CSS module:  `styles.module.css`
 
-`styles.module.css`
+
 
 This makes CSS modules a perfect solution to styling components.
 
@@ -83,9 +61,10 @@ https://github.com/vercel/next.js/tree/canary/examples/with-styled-components
 
 
 ____
-The following section is not entirely specific to Next.js and takes on how I prefer to style my React apps. I recommend checking out to this branch if you don't want to copy and paste or follow this section.
 
-[theme ui](https://theme-ui.com) is a library that allows you to create theme objects and use them in your components. It also handles scoping and injecting the CSS into your app—pretty dope stuff.
+### theme-ui
+* [theme ui](https://theme-ui.com) is a library that allows you to create theme objects and use them in your components.
+* it handles scoping and injecting the CSS into your app—pretty dope stuff.
 
 > 📏 &nbsp;&nbsp;**TLDR;** create an object representing a theme and use that theme for all your components
 
