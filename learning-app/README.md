@@ -1,10 +1,3 @@
----
-path: "/config"
-title: "Customizing Next.js config"
-order: "5A"
-section: "Configuration"
-description: "Learn Next.js with Scott Moss and Frontend Masters"
----
 [next.config.js]()
 If you want to change the build system's behavior, extend Next.js's features, or add ENV variables, you can do this easily in the `next-config.js` file.
 
@@ -56,92 +49,6 @@ section: "Configuration"
 description: "Learn Next.js with Scott Moss and Frontend Masters"
 ---
 
-<<<<<<< HEAD
-The `next.config.js` file gives us the ability to do some powerful stuff. Because the config file has a convention, you should be able to use changes written by others. These are Next.js plugins. 
-
-They look like this:
-
-```js
-// next.config.js
-const withOffline = require('next-offline')
-const config = {
-  // your next config
-}
-
-module.exports = withOffline(config)
-```
-
-Most plugins follow the `withPluginName` format. They also usually take your custom Next.js config, if any, to ensure its returned and consumed by Next.js. This allows you to compose plugins:
-
-```js
-// next.config.js
-const withPlugins = require('next-compose-plugins')
-const withOffline = require('next-offline')
-const withReactSvg = require('next-react-svg')
-const config = {
-  env: {
-    MY_ENV: process.env.MY_ENV
-  }
-}
-
-module.exports = withPlugins([
-  withOffline,
-  [withReactSvg, {
-    // config for reactSvgPlugin
-  }]
-], config)
-```
-
-We're going to install and env plugin that makes it super simple to use env vars in our app.
-
-First, let's install the modules we need.
-
-**npm**
-```shell
-npm i next-env dotenv-load --dev
-```
-
-**yarn**
-```shell
-yarn add next-env dotenv-load
-```
-
-
-In your `next.config.js` file:
-
-```js
-const nextEnv = require('next-env')
-const dotenvLoad = require('dotenv-load')
-
-dotenvLoad()
-
-const withNextEnv = nextEnv()
-module.exports = withNextEnv()
-```
-
-Next, create a `.env` file on the root and add some envs.
-
-```text
-HELP_APP_URL=https://google.com
-```
-
-> ⚠️ &nbsp;&nbsp;**warning**: don't check .env files into git
-
-Now, we'll use the env in our app. Go to the Nav component and add an `a` tag to link to the external app.
-
-```jsx
-// src/components/nav.jsx
-<a sx={{
-    color: 'text',
-    fontSize: 3,
-    cursor: 'pointer'
-  }}
-  href={process.env.HELP_APP_URL}
->
-  Help
-</a>
-```
-=======
 Next.js comes with some styling conventions baked in, and they're pretty good. Because Next.js uses React, you can also use any other mechanism that works with React to style your apps.
 
 > 👍🏾&nbsp;&nbsp;**tip** You might have to extend Next.js tp support your styling approach. More on that later.
@@ -385,4 +292,3 @@ Theme UI is profound, and we barely scratched the surface. I highly recommend ch
 > 👍🏾&nbsp;&nbsp;**tip**: Checkout [Baseweb](https://baseweb.design/) from Uber which is similar to Theme UI
 
 > 🌲 &nbsp;&nbsp;**branch**: `git checkout styling`
->>>>>>> 7f9354bfa8b019970b4123a366c1d4421aafe9a1
