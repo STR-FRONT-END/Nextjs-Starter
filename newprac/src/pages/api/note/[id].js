@@ -5,12 +5,15 @@ const getNote = id => notes.find(n => n.id === parseInt(id))
 
 const handler = nc()
   .get((req, res) => {
-    
+    console.log(0);
     const note = getNote(req.query.id)
 
     if (!note) {
+      console.log(1);
       res.status(404)
+      console.log(2);
       res.end()
+      console.log(3);
       return
     }
 
