@@ -2,8 +2,69 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
+_____
+### Prerequisites
+- Some, but not much, React knowledge is recommended
+- know your way around JavaScript and the Browser
 You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+### By the End you should be able to
+- create an app using Next.js 
+- have a foundation to learn more advanced topics
+
+### Why Nexjs?
+**React is used as the view library of choice but with react you can not quickly build a modern app You need routing, a build system, a way to style things, performance, etc 😰**
+
+_____
+## What is Next.js
+- full-stack framework for modern apps that was created by the Vercel team
+- Very **opinionated**, has well thought out conventions baked in that make alot of decisions for you
+  - **Some things you get for free**
+    - Dev build system
+    - Production build system
+    - Prerendering
+      - SSR
+      - Build time
+      - Static
+    - Routing
+    - API routes (wow, really?)
+
+_____
+
+
+# Getting Started
+## With Create Next App
+**Create a boilerplate app**
+- **npm:** `npx create-next-app`
+
+- **yarn:** `yarn create next-app`
+_____
+
+
+## Next.js app from scratch 
+- in the desired directory already initialized with git and a package.json:
+- create a `.gitignore` file
+- create `package.json` **npm init -y** 
+- install nextjs, reactjs and react-dom
+  - **npm:** `npm i next react react-dom --save`
+
+  - **yarn:** `yarn add next react react-dom`
+- add  scripts to `package.json`
+  - `next` Will start Next.js in dev mode with hot reloading.
+  - `next build` Will build your project and ready it for production.
+  - `next start` Will start your built app, used in production.
+    ```json
+      "scripts": {
+        "dev": "next",//developing
+        "build": "next build",//production
+        "start": "next start"//production
+      }
+    ```
+
+_____
+- [ Routing ]()
+
+
+
 
 ## Learn More
 
@@ -22,62 +83,11 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 ___
 
-# Nextjs-Starter
-## The easy way
-You can use `creat-next-app` to get started very quickly.
-
-**npm**
-```shell
-npx create-next-app
-```
-
-**yarn**
-```shell
-yarn create next-app
-```
-
-This will install a boilerplate app and all of its dependencies. The project's `package.json` will have all the needed scripts ready for you as well.
-
-
-## The still pretty easy way
-We can set up a Next.js app from scratch. That's actually what we'll be doing in this course. In the desired directory already initialized with git and a package.json:
-
-**npm**
-```shell
-npm i next react react-dom --save
-```
-
-**yarn**
-```shell
-yarn add next react react-dom
-```
-
-Next, we need to add some helpful scripts to our `package.json`
-
-```json
-"scripts": {
-  "dev": "next",
-  "build": "next build",
-  "start": "next start"
-}
-```
-
-So what do these commands do?
-
-`next`       Will start Next.js in dev mode with hot reloading.
-
-`next build` Will build your project and ready it for production.
-
-`next start` Will start your built app, used in production.
-
-
-> 🧠&nbsp;&nbsp;**remember**: Next.js is a full-stack framework, by default, it needs to be hosted on a platform that supports Node.js
-
-Next.js is full of goodies, and we won't be covering every single corner of it. We will be going over everything you need and more. This course aims to teach you what Next.js is and how you can get the best from it. 
+> 🧠&nbsp;&nbsp;**remember**: Next.js is a full-stack framework, by default, it needs to be hosted on a platform that supports Node.js 
 
 **So here's what we'll be covering**:
 
-- [ ] What is Next.js
+
 - [ ] How does Next.js compare to React.js
 - [ ] When would you use Next.js
 - [ ] Getting started
@@ -91,3 +101,25 @@ Next.js is full of goodies, and we won't be covering every single corner of it. 
 - [ ] Prerendering
 - [ ] Deployment
 - [ ] JAMstack
+
+
+
+
+
+
+
+
+
+
+
+
+
+_________
+Do you only need a single page app?
+Use Create React App
+
+Do you need a static site, like a blog, that's also a SPA?
+Use Next.js or Gatsby.
+
+Need SSR, an API, and all the above?
+Use Next.js
