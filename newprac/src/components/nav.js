@@ -1,3 +1,4 @@
+/** @jsxRuntime classic */
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
 import Link from 'next/link'
@@ -12,7 +13,9 @@ const Nav = () => (
       <Link href="/notes">
         <a sx={{color: 'text', fontSize: 3, cursor: 'pointer'}}>notes</a>
       </Link>
-      <a sx={{color: 'text', fontSize: 3, cursor: 'pointer'}} href={process.env.HELP_APP_URL}>My GitHub</a>
+      
+    {/* This href is creating an error "Warning: Extra attributes from the server: href" */}
+      <a href={process.env.HELP_APP_URL} sx={{color: 'text', fontSize: 3, cursor: 'pointer'}} >My Portfolio</a>
     </nav>
   </header>
 )
