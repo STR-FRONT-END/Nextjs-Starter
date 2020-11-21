@@ -101,7 +101,32 @@ _____
 -  params value on the router.query for the parent path will just be an empty object {}
 - create a file in a  directory and name it like this `[[...params]].js`, `pages/users/[[...params]].js`
 **useful for when you have a bunch of pages that have pretty similar if not identical layouts and style but have different content and need their own URL. Such things like docs and wikis are a perfect use case**
+______
+## Programmatic routing
+**Redirecting the user when an event happens on a route**
+- There are many [methods](https://nextjs.org/docs/routing/introduction) on the router that you can use
+- To navigate to a page, you can use the push method, which works like href on the Link component
+```
+    import React from 'react'
+    import { useRouter } from 'next/router'
 
-_____
+    export default () => {
+        const router = useRouter()
+        const id = 2
+
+        return (
+            <div>
+            <button onClick={e => router.push('/')}>
+                Go Home
+            </button>
+
+            <button onClick={e => router.push('/user/[id]', `/user/${id}`)}>
+                Dashboard
+            </button>
+            </div>
+        )
+    }
+```
+___
 ### Non-pages
 **So pages are special, but what about when you just need a component? Next.js doesn't have any conventions or opinions about that. The community usually creates a /src/components folder where all the components live**
