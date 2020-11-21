@@ -1,9 +1,3 @@
-// export default (req, res) => {
-//     res.statusCode = 200
-//     res.setHeader('Content-Type', 'application/json')
-//     res.end(JSON.stringify({ message: 'Hello this is a nextjs API' }))
-//   }
-
 import nc from 'next-connect';
 import cors from 'cors'
 
@@ -22,3 +16,12 @@ const handler = nc()
   })
   
 export default handler;
+
+
+
+
+// export default (req, res) => {
+//     res.statusCode = 200
+//     res.setHeader('Content-Type', 'application/json')
+//     res.end(JSON.stringify({ message: 'Hello this is a nextjs API' }))
+//   }
