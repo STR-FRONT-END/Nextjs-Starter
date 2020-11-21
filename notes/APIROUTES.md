@@ -201,3 +201,56 @@ export async function getStaticProps() {
   }
 }
 ```
+
+
+____
+
+## Pre-Rendering Modes
+**Next.js looks at the data fetching in your page components to determine how and when to prerender your page**
+- Prerendering
+    - renders the apps HTML and CSS before it goes to the browser, as a HTML string 
+    - rehydration then gives the app the interactivity it needs by
+- By default, all pages are prerendered, even if they don't export a data fetching method
+-  You choose the prerendering method (static or SSR) by what data function you export in your page component.
+
+### Different Pre=rendering Modes
+- **Static Generation** Pages built at build time into HTML. CDN cacheable.
+    - content being not being changed by the user
+
+- **Server-side Rendering** Pages built at run time into HTML. Cached after the initial hit.
+    - will build when you request the page
+    - renders the component on the server first get the HTML, then send it back to the browser when request
+
+- **Client-side Rendering** Single-page app
+    - sends back the index.html file
+    - JS comes in and Bootstraps it
+
+- For client-side rendering, fetch your data inside your components. You can mix and match these rendering modes to have a genuinely hybrid app ✨.
+__________
+
+## Working with SSR
+**Sometimes you just need to skip rendering some component on the server for whatever reason**
+- Next.js supports dynamic imports that, when used with components, will opt out of SSR.
+#### Dynamic Imports
+```
+import dynamic from 'next/dynamic'
+
+const SponsoredAd = dynamic(
+  () => import('../components/sponsoredAd'),
+  { ssr: false }
+)
+
+const Page = () => (
+  <div>
+    <h1>This will be prerendered</h1>
+
+    {/* this won't*/}
+    <SponsoredAd />
+  </div>
+)
+
+export default Page
+```
+- allows you to do a dynamic import of Components
+- `SponsoredAd` will be its own file and dynamically importing it when needed, instead of being bundled with the rest of the components
+- `{ ssr: false }`: Do not render this on the server
