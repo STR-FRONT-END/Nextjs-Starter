@@ -6,8 +6,9 @@ ____
 - Besure to change the hardcoded API URLS in the fetch calls to use and ENV var for the live URLS
 - Install the CLI 
     - `npm npm i -g vercel` or `yarn global add vercel`
-    check to see if you have vercel `which vercel`
-- run `vercel` or `vc`
+- check to see if you have vercel `which vercel`
+- login to vercel `vercel login`
+- run `vercel` or `vc` to deploy
 
 ### No Nodejs
 - can deploy to static hosting services. You can use: `next export`
