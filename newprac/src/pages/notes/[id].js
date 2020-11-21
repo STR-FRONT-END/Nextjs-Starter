@@ -1,5 +1,6 @@
 import React from 'react';
 import { useRouter } from 'next/router'
+import Link from 'next/link';
 
 const NotePage = () => {
     const router = useRouter()//gives us the actual router
@@ -7,7 +8,12 @@ const NotePage = () => {
     const { id }= router.query// dynamically accesses the id 
   
     return (
-      <h1>Note: {id} </h1>
+      <div>
+        <h1>Note: {id} </h1>
+        <Link href="/notes">
+          <a>Notes</a>
+        </Link>
+      </div>
     )
 }
 
