@@ -123,3 +123,5 @@ Use Next.js or Gatsby.
 
 Need SSR, an API, and all the above?
 Use Next.js
+#### Some Notes come from:
+[ Hendrixer ](https://hendrixer.github.io/)
