@@ -5,11 +5,11 @@
 //   }
 
 import nc from 'next-connect';
-// import cors from 'cors'
+import cors from 'cors'
 
 const handler = nc()
 //   // use connect based middleware
-//   .use(cors())
+  .use(cors())
   // express like routing for methods
   .get((req, res) => {
     res.send('Hello world')
