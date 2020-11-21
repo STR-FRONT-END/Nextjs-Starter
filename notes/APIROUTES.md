@@ -44,3 +44,12 @@ export default (req, res) => {
     
     export default handler;
 ```
+
+## Create API routes
+| Functionallity        | Method    | Routes          |
+| ------------- |:------:| -------------:|
+| create note   | POST   | /api/note     |
+| update note   | PATCH  | /api/note/:id |
+| delete note   | DELETE | /api/note/:id |
+| get one note  | GET    | /api/note/:id |
+| get all notes | GET    | /api/note    |
